@@ -1,0 +1,32 @@
+    <div class="back">
+        <div class="div-center">
+        <div class="content">
+                <app-navbar></app-navbar>
+                <div class="accountant-contanier">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Vásárló neve</th>
+                            <th scope="col">Kiállítás dátuma</th>
+                            <th scope="col">Esedékesség dátuma</th>
+                            <th scope="col">Tétel neve</th>
+                            <th scope="col">Komment</th>
+                            <th scope="col">Ár</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                           <tr *ngFor="let account of accounts" [routerLink]="['/accountant-main', account.id]">
+                           <td >{{account.customerName}}</td>
+                           <td >{{account.exhibitionDate}}</td>
+                           <td >{{account.dueDate}}</td>
+                           <td >{{account.itemName.slice(0,10)}}</td>
+                           <td >{{account.comment.slice(0,10)}}</td>
+                           <td >{{account.price}}</td>
+                          </tr>
+                        </tbody>
+                      </table>  
+                </div>
+            </div>
+            <div class="float-end"><button class="btn btn-primary mt-4" [routerLink]="'/accountant-creation'" *ngIf="!accountant">Számla készítés</button></div><br>
+        </div>
+    </div>

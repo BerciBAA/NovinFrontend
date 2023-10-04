@@ -1,0 +1,55 @@
+<div class="back">
+    <div class="div-center">
+      <div class="content">
+            <form  [formGroup]="reactiveFrom" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="customerName">Felhasználói név:</label>
+                    <input type="text" class="form-control" formControlName="customerName" >
+                    <div>
+                        <small *ngIf="!reactiveFrom.get('customerName').valid && reactiveFrom.get('customerName').touched">Felhasználói név kötelező!</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exhibitionDate">Kiállítás dátuma:</label>
+                    <input type="date" class="form-control" formControlName="exhibitionDate" >
+                    <div>
+                        <small *ngIf="!reactiveFrom.get('exhibitionDate').valid && reactiveFrom.get('exhibitionDate').touched">Kiállítás dátuma kötelező!</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="dueDate">Esedékesség dátuma:</label>
+                    <input type="date" class="form-control" formControlName="dueDate" >
+                    <div>
+                        <small *ngIf="!reactiveFrom.get('dueDate').valid && reactiveFrom.get('dueDate').touched">Esedékesség dátuma kötelező!</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="itemName">Tétel neve:</label>
+                    <input type="input" class="form-control" formControlName="itemName" >
+                    <div>
+                        <small *ngIf="!reactiveFrom.get('itemName').valid && reactiveFrom.get('itemName').touched">Tétel név kötelező!</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comment">Komment neve:</label>
+                    <input type="input" class="form-control" formControlName="comment" >
+                    <div>
+                        <small *ngIf="!reactiveFrom.get('comment').valid && reactiveFrom.get('comment').touched">Komment kötelező!</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="price">Ár:</label>
+                    <input type="number" class="form-control" formControlName="price" >
+                    <div>
+                        <small *ngIf="!reactiveFrom.get('price').valid && reactiveFrom.get('price').touched">Ár kötelező!</small>
+                    </div>
+                </div>
+                <div class="text-danger">{{errorMessage}}</div>
+                <div class="text-success">{{succesMessage}}</div>
+                <input type="submit" value="Számla létrehozása" class="btn btn-primary" [disabled]="!reactiveFrom.valid" >
+            </form>
+                <a [routerLink]="'/accountants'">Vissza</a>
+             
+        </div>
+    </div>
+</div>

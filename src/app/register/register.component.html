@@ -1,0 +1,32 @@
+<div class="back">
+    <div class="div-center">
+      <div class="content">
+            <form  [formGroup]="reactiveFrom" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                <label for="username">Felhasználói név:</label>
+                    <input type="text" class="form-control" formControlName="username" >
+                    <div>
+                        <small *ngIf="!reactiveFrom.get('username').valid && reactiveFrom.get('username').touched">Felhasználói név kötelező!</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Jelszó:</label>
+                    <input type="password" class="form-control" formControlName="password" >
+                    <div>
+                        <small *ngIf="!reactiveFrom.get('password').valid && reactiveFrom.get('password').touched">Jelszó kötelező!</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="role">Szerepkör:</label>
+                    <select class="form-select" formControlName="role" >
+                        <option *ngFor="let role of roleObj" [value]="role.id" >{{role.name}}</option>
+                    </select>
+                </div>
+                <div class="text-danger">{{errorMessage}}</div>
+                <div class="text-succes">{{successResiter}}</div>
+                <input type="submit" value="Regisztráció" class="btn btn-primary" [disabled]="!reactiveFrom.valid" >
+            </form>
+                <a [routerLink]="'/login'">Vissza</a>
+        </div>
+    </div>
+</div>

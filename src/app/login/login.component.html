@@ -1,0 +1,36 @@
+<div class="back">
+    <div class="div-center">
+      <div class="content">
+            <form  [formGroup]="reactiveFrom" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                <label for="username">Felhasználói név:</label>
+                    <input type="text" class="form-control" formControlName="username" >
+                    <div>
+                        <small *ngIf="!reactiveFrom.get('username').valid && reactiveFrom.get('username').touched">Felhasználói név kötelező!</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                <label for="password">Jelszó:</label>
+                    <input type="password" class="form-control" formControlName="password" >
+                    <div>
+                        <small *ngIf="!reactiveFrom.get('password').valid && reactiveFrom.get('password').touched">Jelszó kötelező!</small>
+                    </div>
+                </div>
+                <div class="text-danger">{{errorMessage}}</div>
+                <input type="submit" value="Bejelentkezés" class="btn btn-primary" [disabled]="!reactiveFrom.valid || activateLoginButton" >
+            </form>
+                <a [routerLink]="'/register'">Regisztráció</a>
+                
+                <div [hidden]="badLoginCnt < 3">
+                    <form [formGroup]="captchaFromGroup">
+                        <ngx-recaptcha2 #captchaElem
+                          [siteKey]="siteKey"
+                          (success)="handleSuccess($event)"
+                          [useGlobalDomain]="false"
+                          formControlName="recaptcha">
+                        </ngx-recaptcha2>
+                      </form>
+                </div>
+        </div>
+    </div>
+</div>

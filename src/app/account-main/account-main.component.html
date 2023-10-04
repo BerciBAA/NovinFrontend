@@ -1,0 +1,39 @@
+<div class="back">
+    <div class="div-center">
+      <div class="content">
+            <form  [formGroup]="reactiveFrom" >
+                <div class="form-group">
+                    <label for="customerName">Felhasználói név:</label>
+                    <input type="text" class="form-control" disabled [value]="customerName" [disabled]="true">
+                </div>
+                <div class="form-group">
+                    <label for="exhibitionDate">Kiállítás dátuma:</label>
+                    <input type="date" class="form-control" [value]="exhibitionDate" [disabled]="true" >
+              
+                </div>
+                <div class="form-group">
+                    <label for="dueDate">Esedékesség dátuma:</label>
+                    <input type="date" class="form-control" [value]="dueDate" [disabled]="true" >
+                  
+                </div>
+                <div class="form-group">
+                    <label for="itemName">Tétel neve:</label>
+                    <input  type="input" class="form-control" disabled [value]="itemName">
+                 
+                </div>
+                <div class="form-group">
+                    <label for="comment">Komment neve:</label>
+                    <textarea class="form-control" name="w3review" rows="5" cols="50" disabled [value]="comment"></textarea>
+                   
+                </div>
+                <div class="form-group">
+                    <label for="price">Ár:</label>
+                    <input type="number" class="form-control"  disabled [value]="price">
+                 
+                </div>
+               
+            </form>
+                <a [routerLink]="'/accountants'">Vissza</a>
+        </div>
+    </div>
+</div>

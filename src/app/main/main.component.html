@@ -1,0 +1,26 @@
+<div class="back">
+    <div class="div-center">
+    <div class="content">
+            <app-navbar></app-navbar>
+            <table class="table">
+                <tbody>
+                  <tr>
+                    <th scope="row">Felhasználó név:</th>
+                    <td>{{userObj.username}}</td>
+                
+                  </tr>
+                  <tr>
+                    <th scope="row">Legutolsó bejelentkezés:</th>
+                    <td>{{userObj.loginAt}}</td>
+                   
+                  </tr>
+                  <tr>
+                    <th scope="row">Szerepkörök:</th>
+                    <td><div *ngFor="let item of userObj.roles">{{item.name}}</div></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+

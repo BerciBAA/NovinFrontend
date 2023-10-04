@@ -1,0 +1,35 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+    <div class="back">
+        <div class="div-center">
+        <div class="content">
+                <app-navbar></app-navbar>
+                <div class="admin-contanier">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Felhasználó név</th>
+                            <th scope="col">Törlés</th>
+                            <th scope="col">Szerepkör</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of usersObj; index as i">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{item.name}}</td>
+                            <td><button class="btn btn-primary" (click)="delete(item.id)">Törlés</button></td>
+                            <td><ng-multiselect-dropdown
+                                [settings]="dropdownSettings"
+                                [data]="dropdownList"
+                                [(ngModel)]="selectedItems[i]"
+                                (onSelect)="onItemSelect($event, i)"
+                                (onDeSelect)="onItemDeSelect($event, i)"
+                                >
+                                </ng-multiselect-dropdown></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>    
+            </div>
+        </div>
+    </div>

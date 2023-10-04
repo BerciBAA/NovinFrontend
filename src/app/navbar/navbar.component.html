@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" [routerLink]="'/main'">Novin informatika</a>
+    <div class="collapse navbar-collapse nav-container" id="navbarNavAltMarkup">
+      <div class="navbar-nav ">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active" *ngIf="admin">
+                <a [routerLink]="'/admin'" class="nav-link">Admin</a>
+            </li>
+            <li class="nav-item" *ngIf="accountant || admin || user">
+                <a [routerLink]="'/accountants'" class="nav-link">Számlák</a>
+            </li>
+          </ul>
+      </div>
+      <button class="btn btn-primary" (click)="logout()">Kiejelntekzés</button>
+    </div>
+  </nav>
